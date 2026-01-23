@@ -1,40 +1,22 @@
-[712. 两个字符串的最小ASCII删除和 - 力扣（LeetCode）](https://leetcode.cn/problems/minimum-ascii-delete-sum-for-two-strings/description/?envType=daily-question&envId=2026-01-10)
+本文题解基于以下原题整理，题意经本人重新表述，解题思路与代码均为原创或转载，仅用于个人学习与交流，完整题目请务必查阅官方原题链接：[712. 两个字符串的最小ASCII删除和 - 力扣（LeetCode）](https://leetcode.cn/problems/minimum-ascii-delete-sum-for-two-strings/description/?envType=daily-question&envId=2026-01-10)
 
 >标签：字符串  |  动态规划
 
 # 一、题目描述
 
-给定两个字符串`s1` 和 `s2`，返回 *使两个字符串相等所需删除字符的 **ASCII** 值的最小和* 。
+## **问题概括**
 
- 
+给定两个由小写英文字母组成的字符串 `s1` 和 `s2`。你可以从两个字符串中**删除任意字符**，删除某个字符的代价为该字符的 **ASCII 码值**。你的目标是使得删除字符后，两个剩余的字符串完全相同。请计算并返回达成这一目标所需的**最小删除代价总和**。
 
-**示例 1:**
+## **示例说明**
 
-```
-输入: s1 = "sea", s2 = "eat"
-输出: 231
-解释: 在 "sea" 中删除 "s" 并将 "s" 的值(115)加入总和。
-在 "eat" 中删除 "t" 并将 116 加入总和。
-结束时，两个字符串相等，115 + 116 = 231 就是符合条件的最小和。
-```
+- **示例1**：`s1 = “sea”`, `s2 = “eat”`。最优方案是：从 `s1` 中删除 `’s’`（代价115），从 `s2` 中删除 `’t’`（代价116），剩余字符串均为 `“ea”`，总代价为 `115 + 116 = 231`。
+- **示例2**：`s1 = “delete”`, `s2 = “leet”`。一种最优方案是：从 `s1` 中删除 `“dee”`（代价100+101+101=302），从 `s2` 中删除 `’e’`（代价101），剩余字符串均为 `“let”`，总代价为 `302 + 101 = 403`。
 
-**示例 2:**
-
-```
-输入: s1 = "delete", s2 = "leet"
-输出: 403
-解释: 在 "delete" 中删除 "dee" 字符串变成 "let"，
-将 100[d]+101[e]+101[e] 加入总和。在 "leet" 中删除 "e" 将 101[e] 加入总和。
-结束时，两个字符串都等于 "let"，结果即为 100+101+101+101 = 403 。
-如果改为将两个字符串转换为 "lee" 或 "eet"，我们会得到 433 或 417 的结果，比答案更大。
-```
-
- 
-
-**提示:**
+## **数据范围**
 
 - `0 <= s1.length, s2.length <= 1000`
-- `s1` 和 `s2` 由小写英文字母组成
+- 字符串仅包含小写英文字母。
 
 
 
@@ -43,10 +25,13 @@
 这道题的题意很好理解，就是为了保证最长子序列的同时，需要返回被剔除的字符的ASCII值的和，同时，返回的ASCII值还必须得是最小的，所以，这道题其实和[1143. 最长公共子序列 - 力扣（LeetCode）](https://leetcode.cn/problems/longest-common-subsequence/description/)这道题很像，方法是一样的，只需要改变部分代码即可，所以，先去把[1143. 最长公共子序列 - 力扣（LeetCode）](https://leetcode.cn/problems/longest-common-subsequence/description/)这道题完成，后续再来完成本道题！
 
 本道题的思路如下：
+
 ![1143_最长公共子序列_动规五步曲思路](https://gitee.com/lei-weijun/CodingLearning/raw/main/DailyAlgorithm/LeetCode/9_%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/Images/1143_%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%AD%90%E5%BA%8F%E5%88%97_%E5%8A%A8%E8%A7%84%E4%BA%94%E6%AD%A5%E6%9B%B2%E6%80%9D%E8%B7%AF.jpg)
+
 上述图片是下面这道题[1143. 最长公共子序列 - 力扣（LeetCode）](https://leetcode.cn/problems/longest-common-subsequence/description/)的思路，很明显的可以看到，力扣第1143求得是最长的公共子序列，本题（力扣第712道题目)求得是除去公共公共最长子序列，返回删除的最小的字符ASCII值的总和，所以只需要将两个字符串的所有字符ASCII值的总和`total`减去`2 * 最长公共子序列的ASCII值的总和`即可！
 
 代码如下：
+
 ```python
 class Solution:
     def minimumDeleteSum(self, s1: str, s2: str) -> int:
