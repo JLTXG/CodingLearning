@@ -26,7 +26,7 @@
 
 本道题的思路如下：
 
-![1143_最长公共子序列_动规五步曲思路](https://gitee.com/lei-weijun/CodingLearning/raw/main/DailyAlgorithm/LeetCode/9_%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/Images/1143_%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%AD%90%E5%BA%8F%E5%88%97_%E5%8A%A8%E8%A7%84%E4%BA%94%E6%AD%A5%E6%9B%B2%E6%80%9D%E8%B7%AF.jpg)
+![1143_最长公共子序列_动规五步曲思路](https://gitee.com/lei-weijun/CodingLearning/raw/main/DailyAlgorithm/LeetCode/7_%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/Images/1143_%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%AD%90%E5%BA%8F%E5%88%97_%E5%8A%A8%E8%A7%84%E4%BA%94%E6%AD%A5%E6%9B%B2%E6%80%9D%E8%B7%AF.jpg)
 
 上述图片是下面这道题[1143. 最长公共子序列 - 力扣（LeetCode）](https://leetcode.cn/problems/longest-common-subsequence/description/)的思路，很明显的可以看到，力扣第1143求得是最长的公共子序列，本题（力扣第712道题目)求得是除去公共公共最长子序列，返回删除的最小的字符ASCII值的总和，所以只需要将两个字符串的所有字符ASCII值的总和`total`减去`2 * 最长公共子序列的ASCII值的总和`即可！
 
@@ -139,7 +139,7 @@ class Solution:
         return total - dp[n][m] * 2
 ```
 
-![712_两个字符串的最小ASCII删除和_Python](https://gitee.com/lei-weijun/CodingLearning/raw/main/DailyAlgorithm/LeetCode/9_%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/Images/712_%E4%B8%A4%E4%B8%AA%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%9C%80%E5%B0%8FASCII%E5%88%A0%E9%99%A4%E5%92%8C_Python.png)
+![712_两个字符串的最小ASCII删除和_Python](https://gitee.com/lei-weijun/CodingLearning/raw/main/DailyAlgorithm/LeetCode/7_%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/Images/712_%E4%B8%A4%E4%B8%AA%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%9C%80%E5%B0%8FASCII%E5%88%A0%E9%99%A4%E5%92%8C_Python.png)
 
 ## C++代码
 
