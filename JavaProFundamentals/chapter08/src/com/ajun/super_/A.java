@@ -11,9 +11,9 @@ public class A {
     public A(String name) {}
     public A(String name, int age) {}
 
-//    public void cal() {
-//        System.out.println("A类的cal() 方法...");
-//    }
+    public void cal() {
+        System.out.println("A类的cal() 方法...");
+    }
 
     public void test100() {
     }
