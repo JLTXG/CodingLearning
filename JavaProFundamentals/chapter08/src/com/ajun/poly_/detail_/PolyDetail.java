@@ -19,14 +19,14 @@ public class PolyDetail {
         animal.show();//hello,你好
         animal.sleep();//睡
 
-        //老师希望，可以调用Cat的 catchMouse方法
+        //可以调用Cat的 catchMouse方法
         //多态的向下转型
         //(1)语法：子类类型 引用名 =（子类类型）父类引用;
-        //问一个问题? cat 的编译类型 Cat,运行类型是 Cat
-//        Cat cat = (Cat) animal;
-//        cat.catchMouse();//猫抓老鼠
+        //  cat 的编译类型 Cat,运行类型是 Cat
+        Cat cat = (Cat) animal;
+        cat.catchMouse();//猫抓老鼠
         //(2)要求父类的引用必须指向的是当前目标类型的对象
-//        Dog dog = (Dog) animal; //可以吗？
+//        Dog dog = (Dog) animal; //可以吗？错误
 
         System.out.println("ok~~");
     }
