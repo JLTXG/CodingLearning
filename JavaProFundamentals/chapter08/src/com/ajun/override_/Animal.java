@@ -13,9 +13,9 @@ public class Animal {
         return null;
     }
 
-//    public AAA m3() {
-//        return null;
-//    }
+    public AAA m3() {
+        return null;
+    }
     protected void eat() {
 
     }
