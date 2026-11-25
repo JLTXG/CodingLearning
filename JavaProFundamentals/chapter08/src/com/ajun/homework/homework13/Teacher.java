@@ -36,4 +36,11 @@ public class Teacher extends Person {
         teach();
         System.out.println(play());
     }
+
+    @Override
+    public String toString() {
+        return "Teacher{" +
+                "work_age=" + work_age +
+                '}' + super.toString();
+    }
 }

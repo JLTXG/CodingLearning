@@ -37,4 +37,11 @@ public class Student extends Person{
         study();//组合， 变化万千
         System.out.println(play());
     }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "stu_id='" + stu_id + '\'' +
+                '}' + super.toString();
+    }
 }
