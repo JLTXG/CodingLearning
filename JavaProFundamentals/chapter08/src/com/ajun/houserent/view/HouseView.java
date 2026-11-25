@@ -25,7 +25,7 @@ public class HouseView {
             key = Utility.readChar();
             switch (key) {
                 case '1':
-//                    addHouse();
+                    addHouse();
                     break;
                 case '2':
 //                    findHouse();
@@ -60,5 +60,27 @@ public class HouseView {
         }
         System.out.println("=============房屋列表显示完毕============");
 
+    }
+
+    //编写addHouse() 接收输入，创建House对象，调用add方法
+    public void addHouse() {
+        System.out.println("=============添加房屋============");
+        System.out.print("姓名: ");
+        String name = Utility.readString(8);
+        System.out.print("电话: ");
+        String phone = Utility.readString(12);
+        System.out.print("地址: ");
+        String address = Utility.readString(16);
+        System.out.print("月租: ");
+        int rent = Utility.readInt();
+        System.out.print("状态: ");
+        String state = Utility.readString(3);
+        //创建一个新的House对象, 注意id 是系统分配的，
+        House newHouse = new House(0, name, phone, address, rent, state);
+        if (houseService.add(newHouse)) {
+            System.out.println("=============添加房屋成功============");
+        } else {
+            System.out.println("=============添加房屋失败============");
+        }
     }
 }

@@ -4,7 +4,8 @@ import com.ajun.houserent.domain.House;
 
 public class HouseService {
     private House[] houses; //保存House对象
-
+    private int houseNums = 1;
+    private int idCounter = 1;
     //构造器
     public HouseService(int size) {
         //new houses
@@ -16,5 +17,16 @@ public class HouseService {
     //list方法，返回houses
     public House[] list() {
         return houses;
+    }
+
+    //add方法，添加新对象，返回boolean
+    public boolean add(House newHouse) {
+        if (houseNums == houses.length) {
+            System.out.println("数组已满，不能再添加了......");
+            return false;
+        }
+        houses[houseNums++] = newHouse;
+        newHouse.setId(++idCounter);
+        return true;
     }
 }
