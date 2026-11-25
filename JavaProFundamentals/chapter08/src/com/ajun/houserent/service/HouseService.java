@@ -50,4 +50,15 @@ public class HouseService {
         houses[--houseNums] = null;
         return true;
     }
+
+    //findById方法,返回House对象或者null
+    public House findById(int findId) {
+        //遍历数组
+        for(int i = 0; i < houseNums; i++) {
+            if(findId == houses[i].getId()) {
+                return houses[i];
+            }
+        }
+        return null;
+    }
 }

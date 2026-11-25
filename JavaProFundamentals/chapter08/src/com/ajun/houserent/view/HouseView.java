@@ -28,7 +28,7 @@ public class HouseView {
                     addHouse();
                     break;
                 case '2':
-//                    findHouse();
+                    findHouse();
                     break;
                 case '3':
                     delHouse();
@@ -112,6 +112,20 @@ public class HouseView {
         char c = Utility.readConfirmSelection();
         if (c == 'Y') {
             loop = false;
+        }
+    }
+
+    //根据id查找房屋信息
+    public void findHouse() {
+        System.out.println("=============查找房屋信息============");
+        System.out.print("请输入要查找的id: ");
+        int findId = Utility.readInt();
+        //调用方法
+        House house = houseService.findById(findId);
+        if (house != null) {
+            System.out.println(house);
+        } else {
+            System.out.println("=============查找房屋信息id不存在============");
         }
     }
 }
