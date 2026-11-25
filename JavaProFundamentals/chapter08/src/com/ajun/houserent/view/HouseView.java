@@ -40,8 +40,8 @@ public class HouseView {
                     listHouses();
                     break;
                 case '6':
-//                    exit();
-                    loop = false;
+                    exit();
+//                    loop = false;
                     break;
             }
         } while (loop);
@@ -103,6 +103,15 @@ public class HouseView {
             }
         } else {
             System.out.println("=============放弃删除房屋信息============");
+        }
+    }
+
+    //完成退出确认
+    public void exit() {
+        //这里我们使用Utility提供方法，完成确认
+        char c = Utility.readConfirmSelection();
+        if (c == 'Y') {
+            loop = false;
         }
     }
 }
