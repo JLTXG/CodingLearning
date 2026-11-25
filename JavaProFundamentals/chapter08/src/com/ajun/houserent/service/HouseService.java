@@ -29,4 +29,25 @@ public class HouseService {
         newHouse.setId(++idCounter);
         return true;
     }
+
+    //del方法，删除一个房屋信息
+    public boolean del(int delId) {
+        int index = -1;
+        for(int i = 0; i < houseNums; i++) {
+            if(delId == houses[i].getId()) {//要删除的房屋(id),是数组下标为i的元素
+                index = i;//就使用index记录i
+            }
+        }
+
+        if(index == -1) {//说明delId在数组中不存在(有点绕..)
+            return false;
+        }
+
+        for(int i = index; i < houseNums - 1; i++) {
+            houses[i] = houses[i+1];
+        }
+        //把当有存在的房屋信息的最后一个 设置null
+        houses[--houseNums] = null;
+        return true;
+    }
 }

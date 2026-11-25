@@ -31,7 +31,7 @@ public class HouseView {
 //                    findHouse();
                     break;
                 case '3':
-//                    delHouse();
+                    delHouse();
                     break;
                 case '4':
 //                    update();
@@ -81,6 +81,28 @@ public class HouseView {
             System.out.println("=============添加房屋成功============");
         } else {
             System.out.println("=============添加房屋失败============");
+        }
+    }
+
+    //编写delHouse() 接收输入的id,调用Service 的del方法
+    public void delHouse() {
+        System.out.println("=============删除房屋信息============");
+        System.out.print("请输入待删除房屋的编号(-1退出):");
+        int delId = Utility.readInt();
+        if (delId == -1) {
+            System.out.println("=============放弃删除房屋信息============");
+            return;
+        }
+        //注意该方法本身就有循环判断的逻辑,必须输出Y/N
+        char choice = Utility.readConfirmSelection();
+        if (choice == 'Y') {//真的删除
+            if (houseService.del(delId)) {
+                System.out.println("=============删除房屋信息成功============");
+            } else {
+                System.out.println("=============房屋编号不存在，删除失败============");
+            }
+        } else {
+            System.out.println("=============放弃删除房屋信息============");
         }
     }
 }
