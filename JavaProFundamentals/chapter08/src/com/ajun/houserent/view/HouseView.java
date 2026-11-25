@@ -34,7 +34,7 @@ public class HouseView {
                     delHouse();
                     break;
                 case '4':
-//                    update();
+                    update();
                     break;
                 case '5':
                     listHouses();
@@ -127,5 +127,52 @@ public class HouseView {
         } else {
             System.out.println("=============查找房屋信息id不存在============");
         }
+    }
+
+    //根据id修改房屋信息
+    public void update() {
+        System.out.println("=============修改房屋信息============");
+        System.out.println("请选择待修改房屋编号(-1表示退出)");
+        int updateId = Utility.readInt();
+        if (updateId == -1) {
+            System.out.println("=============你放弃修改房屋信息============");
+            return;
+        }
+
+        //根据输入得到updateId，查找对象
+
+        House house = houseService.findById(updateId);
+        if (house == null) {
+            System.out.println("=============修改房屋信息编号不存在..============");
+            return;
+        }
+
+        System.out.print("姓名(" + house.getName() + "): ");
+        String name = Utility.readString(8, "");//这里如果用户直接回车表示不修改该信息,默认""
+        if (!"".equals(name)) {//修改
+            house.setName(name);
+        }
+
+        System.out.print("电话(" + house.getPhone() + "):");
+        String phone = Utility.readString(12, "");
+        if (!"".equals(phone)) {
+            house.setPhone(phone);
+        }
+        System.out.print("地址(" + house.getAddress() + "): ");
+        String address = Utility.readString(18, "");
+        if (!"".equals(address)) {
+            house.setAddress(address);
+        }
+        System.out.print("租金(" + house.getRent() + "):");
+        int rent = Utility.readInt(-1);
+        if (rent != -1) {
+            house.setRent(rent);
+        }
+        System.out.print("状态(" + house.getState() + "):");
+        String state = Utility.readString(3, "");
+        if (!"".equals(state)) {
+            house.setState(state);
+        }
+        System.out.println("=============修改房屋信息成功============");
     }
 }
