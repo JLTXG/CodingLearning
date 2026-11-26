@@ -6,7 +6,7 @@ public class SingleTon01 {
         System.out.println(girlFriend1.toString());;
 
         GirlFriend girlFriend2 = GirlFriend.getInstance();
-        girlFriend2.toString().sout
+        System.out.println(girlFriend2.toString());
 
         System.out.println(girlFriend1 == girlFriend2);
     }
