@@ -62,24 +62,24 @@ class Outer04 { //外部类
          */
         //4. 同时也直接返回了 匿名内部类 Outer04$2的对象
         //5. 注意("jack") 参数列表会传递给 构造器
-//        Father father = new Father("jack"){
-//
-//            @Override
-//            public void test() {
-//                System.out.println("匿名内部类重写了test方法");
-//            }
-//        };
-//        System.out.println("father对象的运行类型=" + father.getClass());//Outer04$2
-//        father.test();
+        Father father = new Father("jack"){
+
+            @Override
+            public void test() {
+                System.out.println("匿名内部类重写了test方法");
+            }
+        };
+        System.out.println("father对象的运行类型=" + father.getClass());//Outer04$2
+        father.test();
 
         //基于抽象类的匿名内部类
-//        Animal animal = new Animal(){
-//            @Override
-//            void eat() {
-//                System.out.println("小狗吃骨头...");
-//            }
-//        };
-//        animal.eat();
+        Animal animal = new Animal(){
+            @Override
+            void eat() {
+                System.out.println("小狗吃骨头...");
+            }
+        };
+        animal.eat();
     }
 }
 
@@ -100,14 +100,14 @@ interface IA {//接口
 //    }
 //}
 
-//class Father {//类
-//    public Father(String name) {//构造器
-//        System.out.println("接收到name=" + name);
-//    }
-//    public void test() {//方法
-//    }
-//}
-//
-//abstract class Animal { //抽象类
-//    abstract void eat();
-//}
+class Father {//类
+    public Father(String name) {//构造器
+        System.out.println("接收到name=" + name);
+    }
+    public void test() {//方法
+    }
+}
+
+abstract class Animal { //抽象类
+    abstract void eat();
+}
